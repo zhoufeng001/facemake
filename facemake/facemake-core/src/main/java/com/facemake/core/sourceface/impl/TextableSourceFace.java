@@ -1,12 +1,20 @@
-package com.facemake.core.sourceface;
+package com.facemake.core.sourceface.impl;
 
+import java.util.ArrayList;
 import java.util.List;
+
+import com.facemake.core.sourceface.AbstractTextableSourceFace;
+import com.facemake.core.sourceface.TextRegional;
+import com.facemake.util.JsonUtil;
+import com.facemake.util.StringUtil;
 
 /**
  * 源图 
  * @author is_zhoufeng
  */
 public class TextableSourceFace implements AbstractTextableSourceFace {
+	
+	public static final String REGIONALS_KEY = "regionals";
 	
 	/* 图像宽度 */
 	private int width ;
@@ -48,7 +56,11 @@ public class TextableSourceFace implements AbstractTextableSourceFace {
 	}
 	
 	public List<TextRegional> getTextRegionals() {
-		return null;
+		List<TextRegional> regionals = new ArrayList<TextRegional>() ;
+		if(StringUtil.isNotBlank(attributes)){
+			regionals = JsonUtil.getValueFromJsonString(REGIONALS_KEY, regionals.getClass()) ;
+		}
+		return regionals;
 	}
 	
 }
