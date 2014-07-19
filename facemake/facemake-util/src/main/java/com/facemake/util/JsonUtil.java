@@ -25,8 +25,8 @@ public class JsonUtil {
 	 * @param jsonString
 	 * @return
 	 */
-	public static Map<String, String> toMap(String jsonString){
-		Map<String, String> result = new HashMap<String, String>() ;
+	public static Map<String, Object> toMap(String jsonString){
+		Map<String, Object> result = new HashMap<String, Object>() ;
 		if(StringUtil.isBlank(jsonString)){  
 			return result ; 
 		}

@@ -21,7 +21,7 @@ public class TestFace {
 		face.setDescripe("测试");
 		
 		String attributes = face.getAttributes() ;
-		Map<String, String> attributesMap = JsonUtil.toMap(attributes) ;
+		Map<String, Object> attributesMap = JsonUtil.toMap(attributes) ;
 		attributesMap.put("isOpen", "1");
 		
 		List<TextRegional> regionals = face.getTextRegionals() ;
@@ -37,7 +37,7 @@ public class TestFace {
 		
 		regionals.add(r1);
 		
-		attributesMap.put(TextableSourceFace.REGIONALS_KEY, JsonUtil.toJsonString(regionals)) ;  
+		attributesMap.put(TextableSourceFace.REGIONALS_KEY, regionals) ;  
 		
 		attributes = JsonUtil.toJsonString(attributesMap) ;  
 		
@@ -51,7 +51,6 @@ public class TestFace {
 		) ;
 		
 		System.out.println(resultRegionals);
-		
 		
 		
 	}
