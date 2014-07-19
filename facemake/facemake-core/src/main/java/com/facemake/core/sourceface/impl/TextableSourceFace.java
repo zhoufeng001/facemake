@@ -58,7 +58,7 @@ public class TextableSourceFace implements AbstractTextableSourceFace {
 	public List<TextRegional> getTextRegionals() {
 		List<TextRegional> regionals = new ArrayList<TextRegional>() ;
 		if(StringUtil.isNotBlank(attributes)){
-			regionals = JsonUtil.getValueFromJsonString(REGIONALS_KEY, regionals.getClass()) ;
+			regionals = JsonUtil.getValueFromJsonString(REGIONALS_KEY,attributes, regionals.getClass()) ;
 		}
 		return regionals;
 	}

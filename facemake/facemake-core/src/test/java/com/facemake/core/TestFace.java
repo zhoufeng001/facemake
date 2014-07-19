@@ -53,6 +53,12 @@ public class TestFace {
 		System.out.println(resultRegionals);
 		
 		
+		face.setAttributes(attributes);
+		  
+		List<TextRegional> xx =  face.getTextRegionals() ;
+		
+		System.out.println(xx.size());
+		
 	}
 
 }
