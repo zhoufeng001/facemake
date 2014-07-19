@@ -7,6 +7,7 @@ import com.facemake.core.sourceface.AbstractTextableSourceFace;
 import com.facemake.core.sourceface.TextRegional;
 import com.facemake.util.JsonUtil;
 import com.facemake.util.StringUtil;
+import com.google.gson.reflect.TypeToken;
 
 /**
  * 源图 
@@ -15,6 +16,8 @@ import com.facemake.util.StringUtil;
 public class TextableSourceFace implements AbstractTextableSourceFace {
 	
 	public static final String REGIONALS_KEY = "regionals";
+	
+	public static final String REGIONALS_SIZE = "regionals_size";
 	
 	/* 图像宽度 */
 	private int width ;
@@ -54,13 +57,25 @@ public class TextableSourceFace implements AbstractTextableSourceFace {
 	public void setAttributes(String attributes) {
 		this.attributes = attributes;
 	}
-	
+
 	public List<TextRegional> getTextRegionals() {
 		List<TextRegional> regionals = new ArrayList<TextRegional>() ;
 		if(StringUtil.isNotBlank(attributes)){
-			regionals = JsonUtil.getValueFromJsonString(REGIONALS_KEY,attributes, regionals.getClass()) ;
+			regionals = JsonUtil.getValueWithFXFromJsonString(REGIONALS_KEY,attributes, 
+					new TypeToken<List<TextRegional>>(){}) ;
 		}
 		return regionals;
+	}
+
+	public int getTextRegionalsSize() {
+		int size = 0 ;
+		if(StringUtil.isNotBlank(attributes)){
+			Integer sizeInteger = JsonUtil.getValueFromJsonString(REGIONALS_SIZE,attributes, Integer.class) ;
+			if(sizeInteger != null){
+				size = sizeInteger.intValue() ;
+			}
+		}
+		return size;
 	}
 	
 }

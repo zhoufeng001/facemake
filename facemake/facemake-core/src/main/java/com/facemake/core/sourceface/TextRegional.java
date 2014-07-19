@@ -1,5 +1,6 @@
 package com.facemake.core.sourceface;
 
+import java.awt.Color;
 import java.awt.Point;
 
 /**
@@ -16,6 +17,7 @@ public class TextRegional {
 	private String fontType ;
 	private int fontSize ;
 	private int maxTextSize ;
+	private int color ;
 	
 	public Point getLeftUp() {
 		return leftUp;
@@ -58,6 +60,16 @@ public class TextRegional {
 	}
 	public void setMaxTextSize(int maxTextSize) {
 		this.maxTextSize = maxTextSize;
+	}
+	public int getColor() {
+		return color;
+	}
+	public void setColor(int color) {
+		this.color = color;
+	}
+	
+	public void setRGB(int r , int g , int b){
+		this.color = new Color(r, g, b).getRGB() ;
 	}
 	
 }

@@ -4,11 +4,13 @@ import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
 import java.util.Map.Entry;
+
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
+import com.google.gson.reflect.TypeToken;
 
 /**
  * Json相关操作
@@ -91,6 +93,20 @@ public class JsonUtil {
 		}
 		return gson.fromJson(jsonString, valueType) ;  
 	}
+	
+	
+	/**
+	 * 根据key从一个json字符串中得到指定类型的的对象(带泛型)
+	 * @param key
+	 * @param valueType
+	 * @return
+	 */
+	public static <T>T getValueWithFXFromJsonString(String jsonString , TypeToken<T> typeToken){
+		if(StringUtil.isBlank(jsonString)){
+			return null ;
+		}
+		return gson.fromJson(jsonString, typeToken.getType()) ;  
+	}
 
 	/**
 	 * 根据key从一个json字符串中得到指定类型的的对象
@@ -104,6 +120,20 @@ public class JsonUtil {
 		}
 		String valueString = getValueFromJsonString(key , jsonString) ;
 		return getValueFromJsonString(valueString , valueType) ;
+	}
+	
+	/**
+	 * 根据key从一个json字符串中得到指定类型的的对象(带泛型)
+	 * @param key
+	 * @param valueType
+	 * @return
+	 */
+	public static <T>T getValueWithFXFromJsonString(String key , String jsonString  , TypeToken<T> typeToken){
+		if(StringUtil.isBlank(key , jsonString)){
+			return null ;
+		}
+		String valueString = getValueFromJsonString(key , jsonString) ;
+		return getValueWithFXFromJsonString(valueString , typeToken) ;
 	}
 	
 	

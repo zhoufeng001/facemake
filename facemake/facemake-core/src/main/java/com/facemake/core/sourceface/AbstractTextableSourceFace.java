@@ -10,5 +10,12 @@ public interface AbstractTextableSourceFace extends AbstractSourceFace{
 	 * @return
 	 */
 	List<TextRegional> getTextRegionals() ;
+	
+	
+	/**
+	 * 得到可编辑区域数量
+	 * @return
+	 */
+	int getTextRegionalsSize();
 
 }
