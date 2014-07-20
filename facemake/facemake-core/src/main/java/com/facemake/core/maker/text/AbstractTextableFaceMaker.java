@@ -21,7 +21,7 @@ public abstract class AbstractTextableFaceMaker extends FaceMaker<List<String> ,
 	/**
 	 * 从TextRegional中获取定义的Font信息
 	 */
-	protected Font getFontFromRegional( TextRegional textRegional ){
+	private Font getFontFromRegional( TextRegional textRegional ){
 		String fontType = textRegional.getFontType() ;
 		int fontSize = textRegional.getFontSize() ;
 		if(StringUtil.isBlank(fontType)){
