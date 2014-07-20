@@ -25,6 +25,9 @@ public class TextableSourceFace implements AbstractTextableSourceFace {
 	private int height ;
 	/* 描述 */
 	private String descripe ;
+	/* 该字段只对动态图片有效，表示循环次数 */
+	private int repeat ;
+	
 	/* 扩展字段（JSON格式） */
 	private String attributes ;
 	
@@ -57,6 +60,14 @@ public class TextableSourceFace implements AbstractTextableSourceFace {
 	public void setAttributes(String attributes) {
 		this.attributes = attributes;
 	}
+	
+	public int getRepeat() {
+		return repeat;
+	}
+
+	public void setRepeat(int repeat) {
+		this.repeat = repeat;
+	}
 
 	public List<TextRegional> getTextRegionals() {
 		List<TextRegional> regionals = new ArrayList<TextRegional>() ;
@@ -77,5 +88,5 @@ public class TextableSourceFace implements AbstractTextableSourceFace {
 		}
 		return size;
 	}
-	
+
 }

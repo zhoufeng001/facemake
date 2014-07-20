@@ -67,7 +67,7 @@
      </dependency>
     
      <dependency>
-		<groupId>com.google.code.gson</groupId>
+		<groupId>com.google.code.gson</groupId> 
 		<artifactId>gson</artifactId>  
 		<version>2.2.4</version>
 	</dependency>
@@ -77,7 +77,14 @@
 		<artifactId>animated-gif-lib</artifactId>
 		<version>1.2</version>
 	</dependency>  
-    
+	
+	<dependency>
+		<groupId>commons-io</groupId>
+		<artifactId>commons-io</artifactId>
+		<version>2.3</version>
+	</dependency>
+		
+      
     
   </dependencies>
 </project>

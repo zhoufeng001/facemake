@@ -80,5 +80,6 @@
   <modules>
   	<module>facemake-core</module>
   	<module>facemake-util</module>
+  	<module>facemake-front-web</module>
   </modules>
 </project>

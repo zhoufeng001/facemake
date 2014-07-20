@@ -4,6 +4,8 @@ public interface AbstractSourceFace {
 
 	String getDescripe();
 	
+	int getRepeat();
+	
 	int getWidth();
 	
 	int getHeight();
