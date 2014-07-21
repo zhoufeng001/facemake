@@ -65,14 +65,14 @@ public class HelloWorld extends HttpServlet implements ApplicationContextAware{
 		faceMaker = applicationContext.getBean("dynamicImgTextableFaceMaker", DynamicImgTextableFaceMaker.class) ;
 
 		List<String> texts = new ArrayList<String>() ;
-		texts.add("辉儿，啊~~，哦~！！！！！");
-		texts.add("管儿！！。。~~~");
+		texts.add("ABCDEGF");
+		texts.add("HIJKLMN~~~");
 
 		InputStream result = faceMaker.format(getTextableSourceFace() ,getSourceImage("111.gif")
 				, texts ) ;
 
 		try {
-			IOUtils.copy(result, new FileOutputStream(new File("C:/Users/Administrator/Desktop/make11.gif"))) ;
+			IOUtils.copy(result, new FileOutputStream(new File("C:/Users/Administrator/Desktop/result.gif"))) ;
 		} catch (FileNotFoundException e) {
 			e.printStackTrace();
 		} catch (IOException e) {
@@ -113,16 +113,16 @@ public class HelloWorld extends HttpServlet implements ApplicationContextAware{
 		List<TextRegional> regionals = face.getTextRegionals() ;
 
 		TextRegional r1 = new TextRegional();
-		r1.setFontSize(25);
+		r1.setFontSize(13);
 		r1.setFontType("仿宋");
-		r1.setLeftUp(new Point(20, 30));  
+		r1.setLeftUp(new Point(26,28));  
 		r1.setMaxTextSize(3);  
 		r1.setColor(Color.red.getRGB());
 
 		TextRegional r2 = new TextRegional();
-		r2.setFontSize(25);
+		r2.setFontSize(13);
 		r2.setFontType("楷体");
-		r2.setLeftUp(new Point(134, 142));  
+		r2.setLeftUp(new Point(99, 130));  
 		r2.setMaxTextSize(3);  
 		r2.setColor(Color.green.getRGB());
 
