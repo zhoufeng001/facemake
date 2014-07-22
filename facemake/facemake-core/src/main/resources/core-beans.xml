@@ -12,8 +12,8 @@
            http://www.springframework.org/schema/context
            http://www.springframework.org/schema/context/spring-context-3.1.xsd">
            
-           <bean id="dynamicImgTextableFaceMaker" class="com.facemake.core.maker.text.DynamicImgTextableFaceMaker" />  
+           <bean id="dynamicImgTextableFaceMaker" class="com.zf.image.text.maker.DynamicImgTextableFaceMaker" />  
            
-           <bean id="staticImgTextableFaceMaker" class="com.facemake.core.maker.text.StaticImgTextableFaceMaker" />  
+           <bean id="staticImgTextableFaceMaker" class="com.zf.image.text.maker.StaticImgTextableFaceMaker" />  
 		
 </beans>

@@ -18,6 +18,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import org.apache.commons.io.IOUtils;
+import org.apache.log4j.Logger;
 import org.springframework.beans.BeansException;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.ApplicationContextAware;
@@ -35,6 +36,8 @@ import com.zf.image.text.maker.DynamicImgTextableFaceMaker;
  */
 public class HelloWorld extends HttpServlet implements ApplicationContextAware{
 	private static final long serialVersionUID = 1L;
+	
+	public Logger log = Logger.getLogger(HelloWorld.class) ;
 
 
 	DynamicImgTextableFaceMaker faceMaker ;
@@ -68,18 +71,19 @@ public class HelloWorld extends HttpServlet implements ApplicationContextAware{
 		texts.add("辉儿，啊~~，哦~！！！！！");
 		texts.add("管儿！！。。~~~");
 
-		InputStream result = faceMaker.format(getTextableSourceFace() ,getSourceImage("111.gif")
+		InputStream result = faceMaker.format(getTextableSourceFace() ,getSourceImage("com.gif")
 				, texts ) ;
 
 		try {
-			IOUtils.copy(result, new FileOutputStream(new File("C:/Users/Administrator/git/image4j/image4j/imgs/make11.gif"))) ;
+			IOUtils.copy(result, new FileOutputStream(new File("D:/imgtest/xxx.gif"))) ;
 		} catch (FileNotFoundException e) {
-			e.printStackTrace();
+			log.error(e.getMessage());
 		} catch (IOException e) {
-			e.printStackTrace();
+			log.error(e.getMessage());
 		}
 
-		System.out.println(TimerUtil.timing());
+		
+		log.info("花费时间：" + TimerUtil.timing());
 	}
 
 	/**
@@ -92,10 +96,10 @@ public class HelloWorld extends HttpServlet implements ApplicationContextAware{
 
 	public InputStream getSourceImage(String imgName){
 		try {
-			String imgPath = "C:/Users/Administrator/git/image4j/image4j/imgs/" + imgName;
+			String imgPath = "D:/imgtest/" + imgName;
 			return new FileInputStream(new File(imgPath)) ;
 		} catch (IOException e) {
-			e.printStackTrace();
+			log.error(e.getMessage());
 		}
 		return null ;
 	}
@@ -118,10 +122,12 @@ public class HelloWorld extends HttpServlet implements ApplicationContextAware{
 		r1.setPoint(new Point(20, 30));  
 		r1.setMaxTextSize(3);  
 		r1.setColor(Color.red.getRGB());
+		r1.setWidth(100);
 
 		TextRegional r2 = new TextRegional();
 		r2.setFontSize(25);
 		r2.setFontType("楷体");
+		r2.setWidth(100); 
 		r2.setPoint(new Point(134, 142));  
 		r2.setMaxTextSize(3);  
 		r2.setColor(Color.green.getRGB());

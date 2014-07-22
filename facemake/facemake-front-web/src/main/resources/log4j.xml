@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="GBK"?>
+<!DOCTYPE log4j:configuration SYSTEM "file:///D:/dtds/log4j.dtd">  
+<log4j:configuration>
+
+   <appender name="stduo" class="org.apache.log4j.FileAppender">
+   	  <param name="File" value="/log/log.log"/>  
+	  <layout class="org.apache.log4j.PatternLayout">  
+	   <param name="ConversionPattern"  
+	    value="%d - %c -%-4r [%t] %-5p %x - %m%n" />  
+	  </layout>  
+	  <filter class="org.apache.log4j.varia.LevelRangeFilter">  
+          <param name="levelMin" value="debug" />  
+          <param name="levelMax" value="error" />  
+          <param name="AcceptOnMatch" value="true" />  
+      </filter>  
+   </appender>
+
+</log4j:configuration>
