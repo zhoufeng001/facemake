@@ -15,10 +15,10 @@ import javax.imageio.ImageIO;
 
 import org.junit.Test;
 
-import com.facemake.core.maker.text.StaticImgTextableFaceMaker;
-import com.facemake.core.sourceface.TextRegional;
-import com.facemake.core.sourceface.impl.TextableSourceFace;
 import com.facemake.util.JsonUtil;
+import com.zf.image.text.TextRegional;
+import com.zf.image.text.TextableSourceFace;
+import com.zf.image.text.maker.StaticImgTextableFaceMaker;
 
 public class TestFace {
 	
@@ -39,20 +39,14 @@ public class TestFace {
 		TextRegional r1 = new TextRegional();
 		r1.setFontSize(1);
 		r1.setFontType("宋体");
-		r1.setLeftDown(new Point(5, 8));
-		r1.setLeftUp(new Point(15, 28));  
-		r1.setRightDown(new Point(35, 48));
-		r1.setRightUp(new Point(25, 38));
+		r1.setPoint(new Point(15, 28));  
 		r1.setMaxTextSize(3);  
 		r1.setColor(Color.red.getRGB());
 		
 		TextRegional r2 = new TextRegional();
 		r2.setFontSize(1);
 		r2.setFontType("宋体");
-		r2.setLeftDown(new Point(5, 8));
-		r2.setLeftUp(new Point(15, 28));  
-		r2.setRightDown(new Point(35, 48));
-		r2.setRightUp(new Point(25, 38));
+		r2.setPoint(new Point(15, 28));  
 		r2.setMaxTextSize(3);  
 		r2.setColor(Color.blue.getRGB());  
 		
@@ -60,7 +54,7 @@ public class TestFace {
 		regionals.add(r2);
 		
 		attributesMap.put(TextableSourceFace.REGIONALS_KEY, regionals) ;  
-		attributesMap.put(TextableSourceFace.REGIONALS_SIZE, regionals.size()) ;
+		attributesMap.put(TextableSourceFace.REGIONALS_SIZE_KEY, regionals.size()) ;
 		
 		attributes = JsonUtil.toJsonString(attributesMap) ;
 		
@@ -88,7 +82,7 @@ public class TestFace {
 	
 	public InputStream getSourceImage(){
 		try {
-			String imgPath = "C:/Users/Administrator/Desktop/make1.jpg";
+			String imgPath = "C:/Users/Administrator/git/image4j/image4j/imgs/make1.jpg";
 			return new FileInputStream(new File(imgPath)) ;
 		} catch (IOException e) {
 			e.printStackTrace();
@@ -110,7 +104,7 @@ public class TestFace {
 		TextRegional r1 = new TextRegional();
 		r1.setFontSize(18);
 		r1.setFontType("仿宋");
-		r1.setLeftUp(new Point(20, 30));  
+		r1.setPoint(new Point(20, 30));  
 		r1.setMaxTextSize(3);  
 		r1.setColor(Color.red.getRGB());
 		
@@ -118,14 +112,14 @@ public class TestFace {
 		TextRegional r2 = new TextRegional();
 		r2.setFontSize(15);
 		r2.setFontType("楷体");
-		r2.setLeftUp(new Point(134, 142));  
+		r2.setPoint(new Point(134, 142));  
 		r2.setMaxTextSize(3);  
 		r2.setColor(Color.green.getRGB());
 		
 		regionals.add(r1);
 		regionals.add(r2);
 		
-		attributesMap.put(TextableSourceFace.REGIONALS_SIZE, regionals.size()) ;
+		attributesMap.put(TextableSourceFace.REGIONALS_SIZE_KEY, regionals.size()) ;
 		attributesMap.put(TextableSourceFace.REGIONALS_KEY, regionals) ;  
 		
 		attributes = JsonUtil.toJsonString(attributesMap) ;
@@ -146,7 +140,7 @@ public class TestFace {
 		faceMaker.format(sourceFace, sourceImage, texts); 
 		
 		try {
-			ImageIO.write((RenderedImage) sourceImage , "jpg", new File("C:/Users/Administrator/Desktop/make2.jpg")) ;
+			ImageIO.write((RenderedImage) sourceImage , "jpg", new File("C:/Users/Administrator/git/image4j/image4j/imgs/make2.jpg")) ;
 		} catch (IOException e) {
 			e.printStackTrace();
 		}

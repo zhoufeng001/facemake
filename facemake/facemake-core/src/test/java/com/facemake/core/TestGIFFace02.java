@@ -15,19 +15,19 @@ import java.util.Map;
 import org.apache.commons.io.IOUtils;
 import org.junit.Test;
 
-import com.facemake.core.maker.text.AbstractTextableFaceMaker;
-import com.facemake.core.maker.text.DynamicImgTextableFaceMaker;
-import com.facemake.core.sourceface.TextRegional;
-import com.facemake.core.sourceface.impl.TextableSourceFace;
 import com.facemake.util.JsonUtil;
 import com.facemake.util.TimerUtil;
+import com.zf.image.text.TextRegional;
+import com.zf.image.text.TextableSourceFace;
+import com.zf.image.text.maker.AbstractTextableFaceMaker;
+import com.zf.image.text.maker.DynamicImgTextableFaceMaker;
 
 public class TestGIFFace02 {
 	
 
 	public InputStream getSourceImage(String imgName){
 		try {
-			String imgPath = "C:/Users/Administrator/Desktop/" + imgName;
+			String imgPath = "C:/Users/Administrator/git/image4j/image4j/imgs/" + imgName;
 			return new FileInputStream(new File(imgPath)) ;
 		} catch (IOException e) {
 			e.printStackTrace();
@@ -50,21 +50,23 @@ public class TestGIFFace02 {
 		TextRegional r1 = new TextRegional();
 		r1.setFontSize(25);
 		r1.setFontType("仿宋");
-		r1.setLeftUp(new Point(20, 30));  
+		r1.setPoint(new Point(20, 30));  
+		r1.setWidth(50);
 		r1.setMaxTextSize(3);  
 		r1.setColor(Color.red.getRGB());
 
 		TextRegional r2 = new TextRegional();
 		r2.setFontSize(25);
 		r2.setFontType("楷体");
-		r2.setLeftUp(new Point(134, 142));  
+		r2.setPoint(new Point(134, 142));  
+		r2.setWidth(50);
 		r2.setMaxTextSize(3);  
 		r2.setColor(Color.green.getRGB());
 
 		regionals.add(r1);
 		regionals.add(r2);
 
-		attributesMap.put(TextableSourceFace.REGIONALS_SIZE, regionals.size()) ;
+		attributesMap.put(TextableSourceFace.REGIONALS_SIZE_KEY, regionals.size()) ;
 		attributesMap.put(TextableSourceFace.REGIONALS_KEY, regionals) ;  
 
 		attributes = JsonUtil.toJsonString(attributesMap) ;
@@ -85,11 +87,11 @@ public class TestGIFFace02 {
 		texts.add("辉儿，啊~~，哦~！！");
 		texts.add("管儿！！。。~~~");
 		
-		InputStream result = faceMaker.format(getTextableSourceFace() ,getSourceImage("111.gif")
+		InputStream result = faceMaker.format(getTextableSourceFace() ,getSourceImage("com.gif")
 				, texts ) ;
 		
 		try {
-			IOUtils.copy(result, new FileOutputStream(new File("C:/Users/Administrator/Desktop/make11.gif"))) ;
+			IOUtils.copy(result, new FileOutputStream(new File("C:/Users/Administrator/git/image4j/image4j/imgs/xxx.gif"))) ;
 		} catch (FileNotFoundException e) {
 			e.printStackTrace();
 		} catch (IOException e) {
