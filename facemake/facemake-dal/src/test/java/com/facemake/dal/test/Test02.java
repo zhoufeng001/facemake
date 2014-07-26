@@ -15,31 +15,33 @@ import com.facemake.dal.pojo.FmUserCriteria;
 
 public class Test02 {
 
+    public static void main(String[] args) {
+        SqlSessionFactory sqlSessionFactory = null;
+        Reader reader = null;
+        try {
+            reader = Resources.getResourceAsReader("mybatis-config.xml");
+            sqlSessionFactory = new SqlSessionFactoryBuilder().build(reader);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
 
-	public static void main(String[] args) {
-		SqlSessionFactory sqlSessionFactory = null; 
-		Reader reader = null;  
-		try {  
-			reader  = Resources.getResourceAsReader("mybatis-config.xml");  
-			sqlSessionFactory = new SqlSessionFactoryBuilder().build(reader);  
-		} catch (IOException e) {  
-			e.printStackTrace();  
-		}  
+        SqlSession session = sqlSessionFactory.openSession();
+        try {
+            FmUserMapper fmUserMapper = session.getMapper(FmUserMapper.class);
 
-		SqlSession session = sqlSessionFactory.openSession();  
-		try {  
-			FmUserMapper fmUserMapper = session.getMapper(FmUserMapper.class) ;
+            FmUserCriteria query = new FmUserCriteria();
+            query.createCriteria().andNickEqualTo("is_zhoufeng");
+            query.setLimitStart(3);
+            query.setLimitEnd(13);
 
-			FmUserCriteria query = new FmUserCriteria() ;
-			query.createCriteria().andNickEqualTo("is_zhoufeng") ;
-			List<FmUser> users = fmUserMapper.selectByExample(query) ;
+            List<FmUser> users = fmUserMapper.selectByExample(query);
 
-			System.out.println(users.size());
+            System.out.println(users.size());
 
-			System.out.println(fmUserMapper);
-		} finally {  
-			session.close();  
-		}  
-	}
+            System.out.println(fmUserMapper);
+        } finally {
+            session.close();
+        }
+    }
 
 }

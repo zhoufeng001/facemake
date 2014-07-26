@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
-public class FmUserCriteria {
+public class FmUserExample {
     protected String orderByClause;
 
     protected boolean distinct;
@@ -15,7 +15,7 @@ public class FmUserCriteria {
 
     protected Integer limitEnd;
 
-    public FmUserCriteria() {
+    public FmUserExample() {
         oredCriteria = new ArrayList<Criteria>();
     }
 

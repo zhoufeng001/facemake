@@ -1,21 +1,32 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE generatorConfiguration PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN" "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd" >
-<generatorConfiguration >
-  <properties resource="db.properties" />
-  <classPathEntry location="E:\mavenRepostory\mysql\mysql-connector-java\5.1.6\mysql-connector-java-5.1.6.jar"/>
-  <context id="context1" >
-  	<plugin type="com.facemake.mybatis.genrator.plugins.PaginationPlugin" />
-  	 <plugin type="org.mybatis.generator.plugins.EqualsHashCodePlugin" />  
-     <plugin type="org.mybatis.generator.plugins.RenameExampleClassPlugin">      
+<generatorConfiguration>
+	<properties resource="db.properties" />
+	<classPathEntry
+		location="d:/mysql-connector-java-5.1.6.jar" />
+		<context id="context01" targetRuntime="MyBatis3">
+		<property name="suppressTypeWarnings" value="true" />
+		<plugin type="org.mybatis.generator.plugins.EqualsHashCodePlugin" />
+		<plugin type="org.mybatis.generator.plugins.SerializablePlugin" />
+		<plugin type="org.mybatis.generator.plugins.CaseInsensitiveLikePlugin" />
+		<plugin type="com.facemake.mybatis.genrator.plugins.PaginationPlugin" />
+		<plugin type="org.mybatis.generator.plugins.RenameExampleClassPlugin">      
         <property name="searchString" value="Example$" />      
-        <property name="replaceString" value="Criteria" />      
-     </plugin>
-  
-    <jdbcConnection driverClass="com.mysql.jdbc.Driver" connectionURL="${url}" userId="${username}" password="${password}" />
-    <javaModelGenerator targetPackage="com.facemake.dal.pojo" targetProject="facemake-dal/src/main/java" />
-    <sqlMapGenerator targetPackage="com.facemake.dal.mapper" targetProject="facemake-dal/src/main/java" />
-    <javaClientGenerator targetPackage="com.facemake.dal.mapper" targetProject="facemake-dal/src/main/java" type="XMLMAPPER" />
-    <table tableName="fm_user" >
-    </table>
-  </context>
+	        <property name="replaceString" value="Criteria" />      
+	    </plugin>
+		<commentGenerator>
+			<property name="suppressAllComments" value="true" />
+		</commentGenerator>
+
+		 <jdbcConnection driverClass="com.mysql.jdbc.Driver" connectionURL="${url}" userId="${username}" password="${password}" />
+		 
+		<javaModelGenerator targetPackage="com.facemake.dal.pojo" targetProject="../facemake-dal/src/main/java" />
+    	<sqlMapGenerator targetPackage="com.facemake.dal.mapper" targetProject="../facemake-dal/src/main/java" />
+    	<javaClientGenerator targetPackage="com.facemake.dal.mapper" targetProject="../facemake-dal/src/main/java" type="XMLMAPPER" />
+
+		<!-- tbl_admininfo -->
+		<table tableName="fm_user" domainObjectName="FmUser" />
+		
+	</context>
+
 </generatorConfiguration>
