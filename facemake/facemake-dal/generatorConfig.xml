@@ -10,8 +10,9 @@
 		<plugin type="org.mybatis.generator.plugins.SerializablePlugin" />
 		<plugin type="org.mybatis.generator.plugins.CaseInsensitiveLikePlugin" />
 		<plugin type="com.facemake.mybatis.genrator.plugins.PaginationPlugin" />
+		<plugin type="com.facemake.mybatis.genrator.plugins.MyPlugin" />      
 		<plugin type="org.mybatis.generator.plugins.RenameExampleClassPlugin">      
-        <property name="searchString" value="Example$" />      
+       		<property name="searchString" value="Example$" />      
 	        <property name="replaceString" value="Criteria" />      
 	    </plugin>
 		<commentGenerator>

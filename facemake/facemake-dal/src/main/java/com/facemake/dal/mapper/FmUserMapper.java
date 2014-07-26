@@ -6,7 +6,7 @@ import java.util.List;
 import org.apache.ibatis.annotations.Param;
 
 public interface FmUserMapper {
-    int countByExample(FmUserCriteria example);
+    int xxxx(FmUserCriteria example);
 
     int deleteByExample(FmUserCriteria example);
 

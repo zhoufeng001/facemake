@@ -18,13 +18,15 @@ import org.mybatis.generator.config.Context;
 
 public class MyPlugin extends PluginAdapter {
 
+    @Override
     public boolean validate(List<String> warnings) {
-        return false;
+        return true;
     }
 
     @Override
     public Context getContext() {
         // TODO Auto-generated method stub
+        System.out.println("System");
         return super.getContext();
     }
 
