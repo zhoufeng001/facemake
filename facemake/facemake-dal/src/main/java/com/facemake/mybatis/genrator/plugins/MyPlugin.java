@@ -26,7 +26,6 @@ public class MyPlugin extends PluginAdapter {
     @Override
     public Context getContext() {
         // TODO Auto-generated method stub
-        System.out.println("System");
         return super.getContext();
     }
 
