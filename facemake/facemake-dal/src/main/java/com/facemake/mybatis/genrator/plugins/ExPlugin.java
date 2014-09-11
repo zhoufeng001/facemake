@@ -19,7 +19,6 @@ import org.mybatis.generator.api.dom.xml.XmlElement;
 
 public class ExPlugin extends PluginAdapter {
 
-    @Override
     public boolean validate(List<String> arg0) {
         return true;
     }

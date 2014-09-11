@@ -18,7 +18,8 @@ public class AutoGenrator {
 
         boolean overwrite = true;
         // staticTableConfig.xml,dynamicTableConfig.xml
-        File configFile = new File("D:/facemake/facemake/facemake/facemake-dal/generatorConfig.xml");
+//        File configFile = new File("D:/facemake/facemake/facemake/facemake-dal/generatorConfig.xml");
+        File configFile = new File("E:/facemake/facemake/facemake-dal/generatorConfig.xml");
         try {
             Configuration config = cp.parseConfiguration(configFile);
             DefaultShellCallback callback = new DefaultShellCallback(overwrite);
