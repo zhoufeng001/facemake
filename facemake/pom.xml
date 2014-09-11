@@ -88,5 +88,6 @@
   	<module>facemake-util</module>
   	<module>facemake-front-web</module>
     <module>facemake-dal</module>
+    <module>qqq</module>
   </modules>
 </project>
